@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import LiffProvider from "@/components/liff"; // บรรทัดที่เพิ่มเข้ามา
+import LiffInitProvider from "@/components/liff/liff-init-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <LiffProvider>{children}</LiffProvider> {/* บรรทัดที่เพิ่มเข้ามา */}
+        <LiffProvider>
+          <LiffInitProvider>{children}</LiffInitProvider>
+        </LiffProvider>
       </body>
     </html>
   );
